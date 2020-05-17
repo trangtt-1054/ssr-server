@@ -4,13 +4,25 @@ import renderer from './helpers/renderer';
 import createStore from './helpers/createStore';
 import { matchRoutes } from 'react-router-config';
 import Routes from './client/Routes';
+import proxy from 'express-http-proxy';
 
 const app = express();
+
+//set up proxy as a middleware, tell proxy that we want to send request from any request that coming from the route '/api'. proxy is a fn, pass in a string to tell it where to send request to. Now any request trying to access the route of '/api' will be sent off to http://react-ssr-api.herokuapp.com
+app.use(
+  '/api',
+  proxy('http://react-ssr-api.herokuapp.com', {
+    proxyReqOptDecorator(opts) {
+      opts.headers['x-forward-host'] = 'localhost:3000';
+      return opts;
+    },
+  })
+);
 
 app.use(express.static('public')); //tell Express that it needs to treat 'public' dir as a static/public directory available to outside world
 
 app.get('*', (req, res) => {
-  const store = createStore();
+  const store = createStore(req);
 
   //TODO: logic to initialize and load data into store
   //Figure out what component to show

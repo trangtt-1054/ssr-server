@@ -10,11 +10,17 @@ import { Provider } from 'react-redux';
 import Routes from './Routes';
 import reducers from './reducers';
 import { renderRoutes } from 'react-router-config';
+import axios from 'axios';
+
+//create a custom instance of axios (a preconfigured version of axios), pass it to redux thunk so that instance can be automatically sent to all action creators
+const axiosInstance = axios.create({
+  baseURL: '/api', //gắn url vào tất cả request, ví dụ axiosInstance.get('/users') thì sẽ là /api/users
+});
 
 const store = createStore(
   reducers,
   window.INITIAL_STATE,
-  applyMiddleware(thunk.default)
+  applyMiddleware(thunk.default.withExtraArgument(axiosInstance))
 );
 //{} is initial state
 
