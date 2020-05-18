@@ -4851,6 +4851,18 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 
 /***/ }),
 
+/***/ "./src/client/App.js":
+/*!***************************!*\
+  !*** ./src/client/App.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterConfig = __webpack_require__(/*! react-router-config */ \"./node_modules/react-router-config/esm/react-router-config.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//any route that gets matched during the matchRoute process will be passed into the component as a prop called route: a collection of component we need to render inside the App component\nvar App = function App(_ref) {\n  var route = _ref.route;\n\n  console.log(route);\n  return _react2.default.createElement(\n    'div',\n    null,\n    _react2.default.createElement(\n      'h1',\n      null,\n      'Header'\n    ),\n    _react2.default.createElement(\n      'div',\n      null,\n      (0, _reactRouterConfig.renderRoutes)(route.routes)\n    )\n  );\n};\n//pass in renderRoutes any routes that were matched during the match route process\n\nexports.default = {\n  component: App\n};\n\n//# sourceURL=webpack:///./src/client/App.js?");
+
+/***/ }),
+
 /***/ "./src/client/Routes.js":
 /*!******************************!*\
   !*** ./src/client/Routes.js ***!
@@ -4859,7 +4871,7 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n//import { Route } from 'react-router-dom';\n\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _HomePage = __webpack_require__(/*! ./pages/HomePage */ \"./src/client/pages/HomePage.js\");\n\nvar _HomePage2 = _interopRequireDefault(_HomePage);\n\nvar _UsersListPage = __webpack_require__(/*! ./pages/UsersListPage */ \"./src/client/pages/UsersListPage.js\");\n\nvar _UsersListPage2 = _interopRequireDefault(_UsersListPage);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//use react-router-config for ssr\nexports.default = [_extends({}, _HomePage2.default, {\n  path: '/',\n  exact: true\n  //component: HomePage,\n}), _extends({}, _UsersListPage2.default, {\n  path: '/users'\n  //loadData,\n  //component: UsersListPage,\n})];\n\n/* export default () => {\n  return (\n    <div>\n      <Route exact path=\"/\" component={Home} />\n      <Route path=\"/users\" component={UsersList} />\n    </div>\n  )\n} */\n\n//# sourceURL=webpack:///./src/client/Routes.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n//import { Route } from 'react-router-dom';\n\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _HomePage = __webpack_require__(/*! ./pages/HomePage */ \"./src/client/pages/HomePage.js\");\n\nvar _HomePage2 = _interopRequireDefault(_HomePage);\n\nvar _UsersListPage = __webpack_require__(/*! ./pages/UsersListPage */ \"./src/client/pages/UsersListPage.js\");\n\nvar _UsersListPage2 = _interopRequireDefault(_UsersListPage);\n\nvar _App = __webpack_require__(/*! ./App */ \"./src/client/App.js\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//use react-router-config for ssr\nexports.default = [_extends({}, _App2.default, {\n  //nest some routes inside the app, ko có path cụ thể nào cho App tức là App sẽ show 100% ở tất cả các route. So the app component right here is going to be passed the child component as a prop\n  routes: [_extends({}, _HomePage2.default, {\n    path: '/',\n    exact: true\n    //component: HomePage,\n  }), _extends({}, _UsersListPage2.default, {\n    path: '/users'\n    //loadData,\n    //component: UsersListPage,\n  })]\n})];\n\n/* export default () => {\n  return (\n    <div>\n      <Route exact path=\"/\" component={Home} />\n      <Route path=\"/users\" component={UsersList} />\n    </div>\n  )\n} */\n\n//# sourceURL=webpack:///./src/client/Routes.js?");
 
 /***/ }),
 

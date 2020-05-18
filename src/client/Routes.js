@@ -2,22 +2,31 @@ import React from 'react';
 //import { Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import UsersListPage, { loadData } from './pages/UsersListPage';
+import App from './App';
 
 //use react-router-config for ssr
 export default [
   {
-    ...HomePage,
-    path: '/',
-    exact: true,
-    //component: HomePage,
-  },
-  {
-    ...UsersListPage,
-    path: '/users',
-    //loadData,
-    //component: UsersListPage,
-  },
+    ...App,
+    //nest some routes inside the app, ko có path cụ thể nào cho App tức là App sẽ show 100% ở tất cả các route. So the app component right here is going to be passed the child component as a prop
+    routes: [
+      {
+        ...HomePage,
+        path: '/',
+        exact: true,
+        //component: HomePage,
+      },
+      {
+        ...UsersListPage,
+        path: '/users',
+        //loadData,
+        //component: UsersListPage,
+      },
+    ]
+  }
 ];
+
+
 
 /* export default () => {
   return (
