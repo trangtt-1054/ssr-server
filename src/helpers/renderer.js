@@ -21,7 +21,9 @@ export default (req, store) => {
   //tell browser to download bundle.js inside public. ở script ko cần phải gắn public/bundle.js nữa vì đã có app.use public ở trên rồi
   return `
     <html>
-      <head></head>
+      <head>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      </head>
       <body>
         <div id="root">${content}</div>
         <script>

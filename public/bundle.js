@@ -4851,6 +4851,18 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 
 /***/ }),
 
+/***/ "./src/client/App.js":
+/*!***************************!*\
+  !*** ./src/client/App.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterConfig = __webpack_require__(/*! react-router-config */ \"./node_modules/react-router-config/esm/react-router-config.js\");\n\nvar _Header = __webpack_require__(/*! ./components/Header */ \"./src/client/components/Header.js\");\n\nvar _Header2 = _interopRequireDefault(_Header);\n\nvar _actions = __webpack_require__(/*! ./actions */ \"./src/client/actions/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//any route that gets matched during the matchRoute process will be passed into the component as a prop called route: a collection of component we need to render inside the App component\nvar App = function App(_ref) {\n  var route = _ref.route;\n\n  console.log(route);\n  return _react2.default.createElement(\n    'div',\n    null,\n    _react2.default.createElement(_Header2.default, null),\n    _react2.default.createElement(\n      'div',\n      null,\n      (0, _reactRouterConfig.renderRoutes)(route.routes)\n    )\n  );\n};\n//pass in renderRoutes any routes that were matched during the match route process\n\nexports.default = {\n  component: App,\n  loadData: function loadData(_ref2) {\n    var dispatch = _ref2.dispatch;\n    return dispatch((0, _actions.fetchCurrentUser)());\n  }\n  //loadData gets called with Redux store, the only fn we care about redux store is the dispatch function\n};\n\n//# sourceURL=webpack:///./src/client/App.js?");
+
+/***/ }),
+
 /***/ "./src/client/Routes.js":
 /*!******************************!*\
   !*** ./src/client/Routes.js ***!
@@ -4859,7 +4871,7 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n//import { Route } from 'react-router-dom';\n\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _HomePage = __webpack_require__(/*! ./pages/HomePage */ \"./src/client/pages/HomePage.js\");\n\nvar _HomePage2 = _interopRequireDefault(_HomePage);\n\nvar _UsersListPage = __webpack_require__(/*! ./pages/UsersListPage */ \"./src/client/pages/UsersListPage.js\");\n\nvar _UsersListPage2 = _interopRequireDefault(_UsersListPage);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//use react-router-config for ssr\nexports.default = [_extends({}, _HomePage2.default, {\n  path: '/',\n  exact: true\n  //component: HomePage,\n}), _extends({}, _UsersListPage2.default, {\n  path: '/users'\n  //loadData,\n  //component: UsersListPage,\n})];\n\n/* export default () => {\n  return (\n    <div>\n      <Route exact path=\"/\" component={Home} />\n      <Route path=\"/users\" component={UsersList} />\n    </div>\n  )\n} */\n\n//# sourceURL=webpack:///./src/client/Routes.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n//import { Route } from 'react-router-dom';\n\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _HomePage = __webpack_require__(/*! ./pages/HomePage */ \"./src/client/pages/HomePage.js\");\n\nvar _HomePage2 = _interopRequireDefault(_HomePage);\n\nvar _UsersListPage = __webpack_require__(/*! ./pages/UsersListPage */ \"./src/client/pages/UsersListPage.js\");\n\nvar _UsersListPage2 = _interopRequireDefault(_UsersListPage);\n\nvar _App = __webpack_require__(/*! ./App */ \"./src/client/App.js\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//use react-router-config for ssr\nexports.default = [_extends({}, _App2.default, {\n  //nest some routes inside the app, ko có path cụ thể nào cho App tức là App sẽ show 100% ở tất cả các route. So the app component right here is going to be passed the child component as a prop\n  routes: [_extends({}, _HomePage2.default, {\n    path: '/',\n    exact: true\n    //component: HomePage,\n  }), _extends({}, _UsersListPage2.default, {\n    path: '/users'\n    //loadData,\n    //component: UsersListPage,\n  })]\n})];\n\n/* export default () => {\n  return (\n    <div>\n      <Route exact path=\"/\" component={Home} />\n      <Route path=\"/users\" component={UsersList} />\n    </div>\n  )\n} */\n\n//# sourceURL=webpack:///./src/client/Routes.js?");
 
 /***/ }),
 
@@ -4871,7 +4883,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\n/* trước khi có axios instance\nexport const fetchUsers = () => async (dispatch) => {\n  const res = await axios.get('http://react-ssr-api.herokuapp.com/users');\n  dispatch({\n    type: FETCH_USERS,\n    payload: res,\n  });\n}  */\n\nvar FETCH_USERS = exports.FETCH_USERS = 'fetch_users';\nvar fetchUsers = exports.fetchUsers = function fetchUsers() {\n  return function () {\n    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch, getState, api) {\n      var res;\n      return regeneratorRuntime.wrap(function _callee$(_context) {\n        while (1) {\n          switch (_context.prev = _context.next) {\n            case 0:\n              _context.next = 2;\n              return api.get('/users');\n\n            case 2:\n              res = _context.sent;\n\n              dispatch({\n                type: FETCH_USERS,\n                payload: res\n              });\n\n            case 4:\n            case 'end':\n              return _context.stop();\n          }\n        }\n      }, _callee, undefined);\n    }));\n\n    return function (_x, _x2, _x3) {\n      return _ref.apply(this, arguments);\n    };\n  }();\n};\n\n//# sourceURL=webpack:///./src/client/actions/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\n/* trước khi có axios instance\nexport const fetchUsers = () => async (dispatch) => {\n  const res = await axios.get('http://react-ssr-api.herokuapp.com/users');\n  dispatch({\n    type: FETCH_USERS,\n    payload: res,\n  });\n}  */\n\nvar FETCH_USERS = exports.FETCH_USERS = 'fetch_users';\nvar fetchUsers = exports.fetchUsers = function fetchUsers() {\n  return function () {\n    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch, getState, api) {\n      var res;\n      return regeneratorRuntime.wrap(function _callee$(_context) {\n        while (1) {\n          switch (_context.prev = _context.next) {\n            case 0:\n              _context.next = 2;\n              return api.get('/users');\n\n            case 2:\n              res = _context.sent;\n\n              dispatch({\n                type: FETCH_USERS,\n                payload: res\n              });\n\n            case 4:\n            case 'end':\n              return _context.stop();\n          }\n        }\n      }, _callee, undefined);\n    }));\n\n    return function (_x, _x2, _x3) {\n      return _ref.apply(this, arguments);\n    };\n  }();\n};\n\nvar FETCH_CURRENT_USER = exports.FETCH_CURRENT_USER = 'fetch_current_user';\nvar fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {\n  return function () {\n    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {\n      var res;\n      return regeneratorRuntime.wrap(function _callee2$(_context2) {\n        while (1) {\n          switch (_context2.prev = _context2.next) {\n            case 0:\n              _context2.next = 2;\n              return api.get('/current_user');\n\n            case 2:\n              res = _context2.sent;\n\n              dispatch({\n                type: FETCH_CURRENT_USER,\n                payload: res\n              });\n\n            case 4:\n            case 'end':\n              return _context2.stop();\n          }\n        }\n      }, _callee2, undefined);\n    }));\n\n    return function (_x4, _x5, _x6) {\n      return _ref2.apply(this, arguments);\n    };\n  }();\n};\n\n//# sourceURL=webpack:///./src/client/actions/index.js?");
 
 /***/ }),
 
@@ -4887,6 +4899,18 @@ eval("\n\n__webpack_require__(/*! babel-polyfill */ \"./node_modules/babel-polyf
 
 /***/ }),
 
+/***/ "./src/client/components/Header.js":
+/*!*****************************************!*\
+  !*** ./src/client/components/Header.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nvar _actions = __webpack_require__(/*! ../actions */ \"./src/client/actions/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Header = function Header(_ref) {\n  var auth = _ref.auth;\n\n  console.log('My auth status is ', auth);\n\n  var authButton = auth ? _react2.default.createElement(\n    'a',\n    { href: '/api/logout' },\n    'Logout'\n  ) : _react2.default.createElement(\n    'a',\n    { href: '/api/auth/google' },\n    'Login'\n  );\n  return _react2.default.createElement(\n    'nav',\n    null,\n    _react2.default.createElement(\n      'div',\n      { className: 'nav-wrapper' },\n      _react2.default.createElement(\n        _reactRouterDom.Link,\n        { to: '/', className: 'brand-logo' },\n        'Server Side Rendering'\n      ),\n      _react2.default.createElement(\n        'ul',\n        { className: 'right' },\n        _react2.default.createElement(\n          'li',\n          null,\n          _react2.default.createElement(\n            _reactRouterDom.Link,\n            { to: '/users' },\n            'Users'\n          )\n        ),\n        _react2.default.createElement(\n          'li',\n          null,\n          _react2.default.createElement(\n            _reactRouterDom.Link,\n            { to: '/admins' },\n            'Admin'\n          )\n        ),\n        _react2.default.createElement(\n          'li',\n          null,\n          authButton\n        )\n      )\n    )\n  );\n};\n\nvar mapStateToProps = function mapStateToProps(_ref2) {\n  var auth = _ref2.auth;\n\n  return { auth: auth };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchCurrentUser: _actions.fetchCurrentUser })(Header);\n\n//# sourceURL=webpack:///./src/client/components/Header.js?");
+
+/***/ }),
+
 /***/ "./src/client/pages/HomePage.js":
 /*!**************************************!*\
   !*** ./src/client/pages/HomePage.js ***!
@@ -4895,7 +4919,7 @@ eval("\n\n__webpack_require__(/*! babel-polyfill */ \"./node_modules/babel-polyf
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n  return _react2.default.createElement(\n    'div',\n    null,\n    _react2.default.createElement(\n      'div',\n      null,\n      'Welcome! My Beautiful Mighty Queen'\n    ),\n    _react2.default.createElement(\n      'button',\n      { onClick: function onClick() {\n          return console.log('Hi there');\n        } },\n      'Press Meee'\n    )\n  );\n};\n\n//export default Home;\nexports.default = {\n  component: Home\n};\n\n//export an object để tại Routes khi phải import cả component và { loadData } thì còn phân biệt đc, vì sẽ có nhiều component có loadData\n\n//# sourceURL=webpack:///./src/client/pages/HomePage.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n  return _react2.default.createElement(\n    'div',\n    { className: 'center-align', style: { marginTop: '200px' } },\n    _react2.default.createElement(\n      'h3',\n      null,\n      'Welcome! My Beautiful Mighty Queen'\n    ),\n    _react2.default.createElement(\n      'p',\n      null,\n      'Check out these awesome features'\n    )\n  );\n};\n\n//export default Home;\nexports.default = {\n  component: Home\n};\n\n//export an object để tại Routes khi phải import cả component và { loadData } thì còn phân biệt đc, vì sẽ có nhiều component có loadData\n\n//# sourceURL=webpack:///./src/client/pages/HomePage.js?");
 
 /***/ }),
 
@@ -4911,6 +4935,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./src/client/reducers/authReducer.js":
+/*!********************************************!*\
+  !*** ./src/client/reducers/authReducer.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _actions = __webpack_require__(/*! ../actions */ \"./src/client/actions/index.js\");\n\nexports.default = function () {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;\n  var action = arguments[1];\n\n  switch (action.type) {\n    case _actions.FETCH_CURRENT_USER:\n      return action.payload.data || false; //if user's not logged in, return false.\n    default:\n      return state;\n  }\n};\n\n//# sourceURL=webpack:///./src/client/reducers/authReducer.js?");
+
+/***/ }),
+
 /***/ "./src/client/reducers/index.js":
 /*!**************************************!*\
   !*** ./src/client/reducers/index.js ***!
@@ -4919,7 +4955,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _usersReducer = __webpack_require__(/*! ./usersReducer */ \"./src/client/reducers/usersReducer.js\");\n\nvar _usersReducer2 = _interopRequireDefault(_usersReducer);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = (0, _redux.combineReducers)({\n  users: _usersReducer2.default\n});\n\n//# sourceURL=webpack:///./src/client/reducers/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _usersReducer = __webpack_require__(/*! ./usersReducer */ \"./src/client/reducers/usersReducer.js\");\n\nvar _usersReducer2 = _interopRequireDefault(_usersReducer);\n\nvar _authReducer = __webpack_require__(/*! ./authReducer */ \"./src/client/reducers/authReducer.js\");\n\nvar _authReducer2 = _interopRequireDefault(_authReducer);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = (0, _redux.combineReducers)({\n  users: _usersReducer2.default,\n  auth: _authReducer2.default\n});\n\n//# sourceURL=webpack:///./src/client/reducers/index.js?");
 
 /***/ }),
 
