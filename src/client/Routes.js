@@ -3,6 +3,7 @@ import React from 'react';
 import HomePage from './pages/HomePage';
 import UsersListPage, { loadData } from './pages/UsersListPage';
 import App from './App';
+import NotFoundPage from './pages/NotFoundPage';
 
 //use react-router-config for ssr
 export default [
@@ -22,6 +23,10 @@ export default [
         //loadData,
         //component: UsersListPage,
       },
+      {
+        ...NotFoundPage,
+        //ko provide path tức là sẽ show tại mọi route nào mà ko phải các route trên
+      }
     ]
   }
 ];
