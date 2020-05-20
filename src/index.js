@@ -33,7 +33,14 @@ app.get('*', (req, res) => {
 
   console.log(promises);
   Promise.all(promises).then(() => {
-    res.send(renderer(req, store));
+    //to connect the context to the respond object from Express, we will define the context object inside the route handler and pass it into renderer function
+    const context = {}
+    const content = renderer(req, store, context);
+    if (context.notFound) {
+      res.status(404); //it's ok to send the status before sending the respond
+    }
+    res.send(content);
+    //res.send(renderer(req, store, context));
   });
 
   /* matchRoutes(list of route, path that user attempts to view), returns an array of components about to be rendered 
