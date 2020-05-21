@@ -5,7 +5,7 @@ import { fetchCurrentUser } from './actions';
 
 //any route that gets matched during the matchRoute process will be passed into the component as a prop called route: a collection of component we need to render inside the App component
 const App = ({ route }) => {
-  console.log(route)
+  //console.log(route)
   return (
     <div>
       <Header />

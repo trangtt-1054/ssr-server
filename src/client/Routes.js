@@ -20,7 +20,7 @@ export default [
       },
       {
         ...AdminsListPage,
-        route: '/admins',
+        path: '/admins',
       },
       {
         ...UsersListPage,
