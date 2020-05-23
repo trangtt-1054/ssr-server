@@ -29,13 +29,26 @@ app.get('*', (req, res) => {
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
     return route.loadData ? route.loadData(store) : null;
     //phải có return nếu ko promise sẽ undefined
+    //đối với promise, tạo ra 1 promise mới wrap
+  }).map(promise => {
+    if (promise) {
+      return new Promise((resolve, reject) => {
+        promise.then(resolve).catch(resolve)
+      })
+    }
   });
 
-  console.log(promises);
   Promise.all(promises).then(() => {
     //to connect the context to the respond object from Express, we will define the context object inside the route handler and pass it into renderer function
-    const context = {}
+    const context = {};
     const content = renderer(req, store, context);
+    console.log(context);
+
+    //khi render <Redirect /> on the server, StaticRouter will add a new property to context object => use that
+    if (context.url) {
+      return res.redirect(301, context.url)
+    }
+
     if (context.notFound) {
       res.status(404); //it's ok to send the status before sending the respond
     }
