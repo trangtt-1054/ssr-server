@@ -1,5 +1,3 @@
-//a function that simply renders react app as a string, ko để ở index.js vì tránh mai sau app mở rộng thì file size sẽ bị lớn
-
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -10,7 +8,6 @@ import serialize from 'serialize-javascript';
 
 export default (req, store, context) => {
   const content = renderToString(
-    //context là prop bắt buộc của StaticRouter, ko pass vào là lỗi, tạm thời pass vào empty object, handle some redirect and error handling. The context object allows us to communicate from render component to this renderer file
     <Provider store={store}>
       <StaticRouter location={req.path} context={context}>
         {/* <Routes /> */}
@@ -18,7 +15,7 @@ export default (req, store, context) => {
       </StaticRouter>
     </Provider>
   );
-  //tell browser to download bundle.js inside public. ở script ko cần phải gắn public/bundle.js nữa vì đã có app.use public ở trên rồi
+
   return `
     <html>
       <head>

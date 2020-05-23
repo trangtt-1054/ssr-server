@@ -7,11 +7,6 @@ class AdminsListPage extends Component {
   componentDidMount() {
     this.props.fetchAdmins();
   }
-
-  //ở đây mà dùng arrow fn là lỗi build
-  //https://stackoverflow.com/questions/41398645/unable-to-use-arrow-functions-inside-react-component-class
-  //muốn dùng thì phải dùng pluigin https://babeljs.io/docs/en/babel-plugin-transform-class-properties/
-
   renderAdmins() {
     return this.props.admins.map((admin) => {
       return <li key={admin.id}>{admin.name}</li>;
@@ -33,6 +28,11 @@ const mapStateToProps = (state) => {
 };
 
 export default {
-  component: connect(mapStateToProps, { fetchAdmins })(requireAuth(AdminsListPage)),
+  component: connect(mapStateToProps, { fetchAdmins })(
+    requireAuth(AdminsListPage)
+  ),
   loadData: ({ dispatch }) => dispatch(fetchAdmins()),
 };
+
+//https://stackoverflow.com/questions/41398645/unable-to-use-arrow-functions-inside-react-component-class
+//muốn dùng thì phải dùng pluigin https://babeljs.io/docs/en/babel-plugin-transform-class-properties/

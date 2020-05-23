@@ -28,12 +28,8 @@ const mapStateToProps = (state) => {
 };
 
 const loadData = (store) => {
-  //console.log('Trying to load some data');
-  return store.dispatch(fetchUsers()); //return a Promise representing the network request, ko dùng connect function để dispatch vì muốn dùng connect thì phải có Proivder, mà lúc này app còn chưa render nên ko có Provider
+  return store.dispatch(fetchUsers());
 };
-
-// export { loadData };
-// export default connect(mapStateToProps, { fetchUsers })(UsersList);
 
 export default {
   loadData,
